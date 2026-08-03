@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /.git/
+
+Sitemap: https://cairnai.co.uk/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

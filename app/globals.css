@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --cairn-navy: #0D1F3C;
+    --cairn-navy-light: #162D50;
+    --cairn-blue: #2E6FD9;
+    --cairn-gold: #D4943A;
+    --cairn-mist-white: #F5F7FA;
+    --cairn-ink-dark: #1A2332;
+    --cairn-slate-grey: #5A6B7E;
+    --cairn-glen-green: #2D8F5E;
+    --cairn-frost: #E2E8F0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans;
+    color: var(--cairn-ink-dark);
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  h4 {
+    @apply text-xl font-bold;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--cairn-blue);
+    @apply hover:underline transition-colors;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-eyebrow {
+    @apply uppercase text-sm font-bold;
+    letter-spacing: 0.05em;
+    color: var(--cairn-gold);
+  }
+
+  .container-max {
+    @apply mx-auto px-6 md:px-8;
+    max-width: 1200px;
+  }
+
+  .btn-primary {
+    @apply inline-block px-6 md:px-8 py-3 md:py-4 text-white font-semibold rounded-lg transition-all no-underline;
+    background-color: var(--cairn-blue);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-ghost {
+    @apply inline-block px-6 md:px-8 py-3 md:py-4 border-2 border-white text-white font-semibold rounded-lg transition-all no-underline;
+  }
+
+  .btn-ghost:hover {
+    @apply bg-white;
+    color: var(--cairn-navy);
+  }
+
+  .btn-secondary {
+    @apply inline-block px-6 md:px-8 py-3 md:py-4 border-2 font-semibold rounded-lg transition-all no-underline;
+    border-color: var(--cairn-blue);
+    color: var(--cairn-blue);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--cairn-blue);
+    @apply text-white;
+  }
+
+  .card {
+    @apply bg-white rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow;
+    border: 1px solid var(--cairn-frost);
+  }
+
+  .section-light {
+    background-color: var(--cairn-mist-white);
+  }
+
+  .section-dark {
+    background-color: var(--cairn-navy);
+    @apply text-white;
+  }
 }
